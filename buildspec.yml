@@ -1,11 +1,22 @@
-version: 0.1
+version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      java: corretto11 # Specify the Java runtime version, adjust as needed
+    commands:
+      - echo Installing dependencies...
+
   build:
     commands:
-      - echo Build completed on `date`
+      - echo Build started on `date`
       - mvn package
+      - echo Build completed on `date`
 
 artifacts:
   files:
-    - '**/*'
+    - '**/*' # Include all generated files
+  discard-paths: yes # Flatten the directory structure (optional)
+  base-directory: target # Specify the directory where the build output is located
+  name: java-spring-boot-application-artifact.zip
+  bucket: my-app-deployment-artifacts # Replace with your bucket name
