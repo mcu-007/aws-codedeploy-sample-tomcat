@@ -2,3 +2,4 @@
 A sample Tomcat application integrated with CodeDeploy. 
 commit1
 commit2
+commit3
